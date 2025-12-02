@@ -527,4 +527,3 @@ http://localhost:3000/docs
 
 ---
 
-h ❤️ using TypeScript, Node.js, and PostgreSQL**
