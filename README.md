@@ -405,20 +405,6 @@ The application uses **Prisma ORM** with PostgreSQL. Here's an overview of the m
 - **expiresAt**: DateTime
 - **createdAt**: DateTime
 
-### Entity Relationships
-
-```mermaid
-erDiagram
-    User ||--o{ Store : owns
-    User ||--o{ RentalRequest : creates
-    User ||--o{ RefreshToken : has
-    Store ||--o{ Vehicle : contains
-    Vehicle ||--o{ VehicleImage : has
-    Vehicle ||--o{ RentalRequest : "booked via"
-    RentalRequest ||--|| Payment : "paid via"
-```
-
----
 
 ## 📡 API Endpoints
 
@@ -485,11 +471,6 @@ Base URL: `http://localhost:3000/api/v1`
 | GET | `/payments/:id` | Get payment by ID | ✅ | Any |
 | GET | `/payments/:id/receipt` | Download receipt (PDF/JSON) | ✅ | Any |
 
-### 🏥 Health Check
-
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| GET | `/health` | Server health status | ❌ |
 
 ---
 
@@ -536,82 +517,6 @@ curl -X GET http://localhost:3000/api/v1/users/profile \
 
 ---
 
-## 🧪 Testing
-
-### Run Tests
-```bash
-# Run all tests
-npm test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Run tests with coverage
-npm run test:coverage
-```
-
-### Test Credentials (After Seeding)
-
-**Customer Account:**
-- Email: `customer@example.com`
-- Password: `customer123`
-
-**Owner Account:**
-- Email: `owner@example.com`
-- Password: `owner123`
-
----
-
-## 🌐 Production Deployment
-
-### Using Docker
-
-1. **Build and run with Docker Compose**
-   ```bash
-   docker-compose up -d
-   ```
-
-2. **Run migrations**
-   ```bash
-   docker-compose exec app npm run prisma:migrate:deploy
-   ```
-
-### Manual Deployment
-
-1. **Build the application**
-   ```bash
-   npm run build
-   ```
-
-2. **Set environment to production**
-   ```env
-   NODE_ENV=production
-   ```
-
-3. **Run migrations**
-   ```bash
-   npm run prisma:migrate:deploy
-   ```
-
-4. **Start the server**
-   ```bash
-   npm start
-   ```
-
-### Production Checklist
-- [ ] Set strong `JWT_SECRET` and `REFRESH_TOKEN_SECRET`
-- [ ] Configure production database
-- [ ] Set up SMTP for email notifications
-- [ ] Enable HTTPS
-- [ ] Configure CORS for your frontend domain
-- [ ] Set up monitoring and logging
-- [ ] Configure backup strategy
-- [ ] Review rate limiting settings
-
-For detailed deployment instructions, see [PRODUCTION.md](./PRODUCTION.md)
-
----
-
 ## 📚 API Documentation
 
 ### Swagger UI
@@ -620,59 +525,6 @@ Interactive API documentation is available at:
 http://localhost:3000/docs
 ```
 
-### Additional Documentation
-- [API Documentation](./API_DOCUMENTATION.md) - Detailed API reference with examples
-- [Quick Start Guide](./QUICKSTART.md) - Fast setup for development
-- [Postman Collection](./postman_collection.json) - Import into Postman for testing
-
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Development Guidelines
-- Follow the existing code structure
-- Write tests for new features
-- Run linting before committing: `npm run lint`
-- Format code: `npm run format`
-
----
-
-## 📄 License
-
-This project is licensed under the **ISC License**.
-
----
-
-## 👨‍💻 Author
-
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-
----
-
-## 🙏 Acknowledgments
-
-- Built with [Express](https://expressjs.com/)
-- Database ORM: [Prisma](https://www.prisma.io/)
-- TypeScript for type safety
-- Documentation: [Swagger](https://swagger.io/)
-
----
-
-## 📞 Support
-
-For issues, questions, or suggestions:
-- Create an issue on GitHub
-- Email: support@vehiclerental.com
-
----
-
-**Made with ❤️ using TypeScript, Node.js, and PostgreSQL**
+h ❤️ using TypeScript, Node.js, and PostgreSQL**
