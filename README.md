@@ -214,6 +214,8 @@ Vehicle-Rent---Backend/
 └── README.md                  # Project documentation
 ```
 
+---
+
 ### Design Pattern: Repository Pattern
 The application follows the **Repository Pattern** with clear separation of concerns:
 - **Controllers**: Handle HTTP requests/responses
